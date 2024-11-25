@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply hover:bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:text-white
+}
+
+.btn2 {
+    @apply hover:bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500  hover:bg-clip-text 
+  }
+
+  @layer base {
+    .font-outline-2 {
+      -webkit-text-stroke: 2px #9fcfff;
+      opacity:0.4;
+    }
+    .font-outline-4 {
+      -webkit-text-stroke: 4px black;
+    }
+  }
