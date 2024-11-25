@@ -41,7 +41,7 @@ function Home() {
         <div className='w-[500px] h-[500px] absolute -bottom-32 -left-72 bg-white opacity-25 -z-1 rounded-full'></div>
 
         <motion.img 
-          className='flex flex-col  w-[650px] h-auto z-10 absolute left-40 -bottom-16' 
+          className='flex flex-col  w-[650px] h-auto z-10 absolute left-40 -bottom-20' 
           src={vasanth}
           initial={{x:-100,opacity:0, transition:{duration:3}}}
           animate={{x:0,opacity:1, transition:{duration:1.2}}}
@@ -52,11 +52,11 @@ function Home() {
         {/* Main Text Animation */}
         <div className="absolute left-[400px] h-[500px] w-auto">
           <h1 className="font-bold text-5xl font-outline-2 text-transparent bg-clip-text bg-transparent">
-            <span className="block relative -left-[20px]">Bridging</span>
-            <span className="block relative -left-[10px]">gaps</span>
-            <span className="block">between</span>
-            <span className="block relative left-[85px]">imagination</span>
-            <span className="block relative left-[110px]">and</span>
+            <span className="block relative -left-[22px]">Bridging</span>
+            <span className="block relative -left-[20px]">gaps</span>
+            <span className="block  relative -left-[10px]">between</span>
+            <span className="block relative left-[80px]">imagination</span>
+            <span className="block relative left-[100px]">and</span>
             <span className="block relative left-[120px]">technology.</span>
           </h1>
         </div>
