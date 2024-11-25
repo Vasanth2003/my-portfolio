@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Typewriter from "typewriter-effect";
 import { Link } from 'react-router-dom';
 import vasanth from '../../assets/vasanth.png';
 
+// Loading Spinner Component
+function Loading() {
+  return (
+    <div className="flex justify-center items-center h-screen bg-black">
+      <div className="spinner-border animate-spin inline-block w-16 h-16 border-4 border-t-4 border-blue-500 rounded-full" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    </div>
+  );
+}
+
 function Home() {
+  // const [loading, setLoading] = useState(true);
+
+  // // Simulate loading process (for demo purposes)
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false); // Simulate loading completion after 2 seconds
+  //   }, 2000);
+  // }, []);
+
+  // // If still loading, show the loading spinner
+  // if (loading) {
+  //   return <Loading />;
+//  }
+
   return (
     <motion.div 
-      className="top-0 z-[-2] h-screen w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] overflow-hidden"
+      className="top-0 z-[-2] h-screen w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]  "
       initial={{ opacity: 0, width: 0, transition: { duration: 1 } }}
       animate={{ opacity: 1, width: "100%", transition: { duration: 1 } }}
       exit={{ opacity: 0, x: "100%", transition: { duration: 1 } }}
@@ -15,22 +40,20 @@ function Home() {
       <div className='flex flex-col p-10'>
         <div className='w-[500px] h-[500px] absolute -bottom-32 -left-72 bg-white opacity-25 -z-1 rounded-full'></div>
 
-        <motion.img className='flex flex-col w-[650px] h-auto z-10 absolute left-36  -bottom-16 ' 
+        <motion.img 
+          className='flex flex-col  w-[650px] h-auto z-10 absolute left-40 -bottom-16' 
           src={vasanth}
-            initial={{x:-100,transition:{duration:3}}}
-            animate={{x:0,transition:{duration:1.2}}}
-            exit={{x:-100,mode:"tween"}}
-            transition={{
-                          delay: 2, 
-                          duration: 3, 
-                        }}
-          />
+          initial={{x:-100,opacity:0, transition:{duration:3}}}
+          animate={{x:0,opacity:1, transition:{duration:1.2}}}
+          exit={{x:-100, mode:"tween"}}
+         
+        />
 
         {/* Main Text Animation */}
         <div className="absolute left-[400px] h-[500px] w-auto">
           <h1 className="font-bold text-5xl font-outline-2 text-transparent bg-clip-text bg-transparent">
             <span className="block relative -left-[20px]">Bridging</span>
-            <span className="block">gaps</span>
+            <span className="block relative -left-[10px]">gaps</span>
             <span className="block">between</span>
             <span className="block relative left-[85px]">imagination</span>
             <span className="block relative left-[110px]">and</span>
@@ -66,12 +89,7 @@ function Home() {
             MERN | Redux | Framer Motion | TailWind CSS
           </div>
 
-          {/* About Link */}
-          <Link 
-            to='/about' 
-            className='text-blue-900 height-md absolute right-60 top-60 w-24 flex hover:scale-125 btn justify-center bg-white rounded-xl'>
-            About
-          </Link>
+       
         </div>
 
         {/* React Logo */}
@@ -87,8 +105,8 @@ function Home() {
         <div>
           <img
             src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png"
-            alt="Node Logo"
-            className="h-60 absolute bottom-3 right-9 opacity-50 w-auto"
+            alt="JS Logo"
+            className="h-60 absolute bottom-3 right-9 opacity-20 w-auto"
           />
         </div>
 
@@ -105,18 +123,3 @@ function Home() {
 }
 
 export default Home;
-
-
- // <motion.div 
-    // className='font-poppins   overflow-y-auto scrollbar-hide  h-screen bg-gradient-to-b from-slate-950 overflow-hidden via-blue-900 to-slate-950'
-    // initial={{opacity:0, width:0,transition:{duration:1}}}
-    // animate={{opacity:1, width:"100%",transition:{duration:1}}}
-    // exit={{opacity:0,x:"100%",transition:{duration:1} }}
-    // >
-
-
-     {/* <img
-          src="https://img.icons8.com/color/512/express-js.png"
-          alt="express Logo"
-          className="h-48   absolute left-4 top-40 opacity-90  w-auto"
-          /> */}

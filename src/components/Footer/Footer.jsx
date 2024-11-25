@@ -13,6 +13,7 @@ export default function Footer() {
                         <Link to="/" className="flex items-center">
                          <h4 className="flex text-3xl font-bold text-white items-center mr-3 h-12">Vasanth.</h4>    
                         </Link>
+                        <div className='text-slate-400'>Made With ❤️ By Pon Vasanth</div>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>

@@ -1,20 +1,42 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import about from '../../assets/about.png';
 import { motion, spring } from 'framer-motion';
 
+function Loading() {
+  return (
+    <div className="flex justify-center items-center h-screen bg-black">
+      <div className="spinner-border animate-spin inline-block w-16 h-16 border-4 border-t-4 border-blue-500 rounded-full" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    </div>
+  );
+}
+
 function About() {
+  // const [loading, setLoading] = useState(true);
+
+  // // Simulate loading process (for demo purposes)
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false); // Simulate loading completion after 2 seconds
+  //   }, 2000);
+  // }, []);
+  // if(loading){
+  //   return <Loading/>
+  // }
   return (
     // <motion.div className="font-poppins h-screen bg-gradient-to-b from-slate-950 via-blue-900 to-slate-950 flex justify-center items-center"
     // initial={{opacity:0, width:0,x:0,transition:{duration:1}}}
     // animate={{opacity:1, width:"100%",transition:{duration:1}}}
     // exit={{opacity:0,x:"100%",transition:{duration:1} }}>
-       <motion.div className=" font-poppins  top-0 z-[-2] h-screen w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]  flex justify-center items-center"
+       <motion.div className=" font-poppins   flex justify-center items-center z-[-2] h-screen w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"
         initial={{opacity:0, width:0,transition:{duration:1}}}
     animate={{opacity:1, width:"100%",transition:{duration:1}}}
     exit={{opacity:0,x:"100%",transition:{duration:1} }}
        >
-     <div className="flex flex-row items-center gap-10 max-w-[1200px]">
+    <h1 className='absolute flex top-44 justify-center -m-[100px] text-5xl items-center text-white font-doto'>About Me</h1>
 
+     <div className="flex flex-row items-center gap-10">
        
 
         <div className="text-white  max-w-lg">
