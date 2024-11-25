@@ -49,7 +49,7 @@ function Works() {
 
   function Card({ title, description,link,tech,image }) {
     return (
-      <div className="bg-white rounded-lg shadow-md p-6 hover:bg-transparent hover:text-white hover:shadow-xl transition duration-300">
+      <div className="bg-white rounded-lg  shadow-md p-6 hover:bg-transparent hover:text-white hover:shadow-xl transition duration-300">
         
         
         {/* <img
@@ -72,7 +72,7 @@ function Works() {
         <h2 className="text-3xl font-bold text-white text-center mb-2 ">
           My Projects
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2  gap-5">
+        <div className="grid grid-cols-2 mx-[120px] sm:grid-cols-2  gap-5">
           {cardData.map((card) => (
             <Card
               key={card.id}

@@ -1,179 +1,124 @@
-import React from "react";
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-
-import {Link,NavLink} from 'react-router-dom'
-
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { Link, NavLink } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 export default function Header() {
-    const [menuOpen,setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    return (
-        <header className="font-poppins shadow sticky  top-0 z-50 ">
-            <nav className="bg-gradient-to-r from-slate-950 via-blue-900 to-slate-950 border-gray-200 px-4 lg:px-6 py-2.5">
-                <div className="flex  items-center">
-                    <Link to="/" className="flex flex-grow justify-center">
-                        <h4 className="flex text-3xl font-bold text-white items-center mr-3 h-12">Vasanth</h4>
-                    </Link>
-                        
-                        
+  return (
+    <header className="font-poppins shadow sticky top-0 z-50">
+      <nav className="w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] px-4  py-2.5">
+        <div className="flex items-center">
+          <Link to="/" className="flex pl-5">
+            <h4 className="text-5xl  font-bold font-signatute text-white">Vasanth</h4>
+          </Link>
+           <Link
+            to="#"
+            className="text-white btn bg-transparent absolute right-5  focus:text-white  text-xl px-4 lg:px-5 py-2 lg:py-2.5 "
+          >
+        <FontAwesomeIcon className="text-white pr-3 " icon={faDownload} />         
 
-                        <Link
-                            to="#"
-                            className="text-blue-900  btn bg-white absolute right-5  focus:ring-4 focus:text-gray-400 focus:bg-transparent font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5  focus:outline-none"
-                        >
-                            Resume
-                        </Link>
+            Resume
+          </Link>
 
+          <div className="relative ">
+            <button
+              className="text-white text-3xl  transition-all duration-500 ease-in-out p-4 group absolute top-[300px] -left-24"
+              onMouseEnter={() => setMenuOpen(true)}  onClick={()=>setMenuOpen(false)}
+            >
+            <div className="flex items-center relative justify-center w-14 h-14 bg-black rounded-full top-7 -left-3"> </div>
 
-                        <nav className=" text-white flex justify-between">
-                                <button
-                                    className= "mr-5 relative  right-28  text-white text-3xl"
-                                    onClick={() => setMenuOpen(!menuOpen)}
-                                >
-                                    <FontAwesomeIcon icon={faBars} />
-                                </button>
+              <div className="w-8 h-8 relative">
+              <h2 className="absolute text-xl bottom-16 -left-4"> Menu</h2>
+                <span className="absolute block w-full h-[2px] bg-white rounded transform rotate-0 origin-center transition-all duration-500 ease-in-out group-hover:rotate-45"></span>
+                <span className="absolute block w-full h-[2px] bg-white rounded transform rotate-90 origin-center transition-all duration-500 ease-in-out group-hover:-rotate-45"></span>
+              </div>
+            </button>
 
-                            {menuOpen && (
-                                <div className="absolute top-16 right-4 h-auto w-80  text-black shadow-lg rounded-md p-4">
-                                <ul className=" mt-4 flex flex-col  items-center font-medium   lg:space-x-8 lg:mt-0">
-                                    <li>
-                                        <NavLink
-                                            to="/"
-                                            className={({isActive}) =>
-                                                `block py-2 pr-4 mr-2 pl-3 duration-200   border-gray-100 ${isActive ? "text-white":"text-slate-900"} lg:hover:bg-transparent  hover:text-slate-950 lg:p-0`
-                                            }
-                                        >
-                                            Home
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            to="/about"
-                                            className={({isActive}) =>
-                                                `block py-2 pr-4 mr-2 pl-3 duration-200   border-gray-100 ${isActive ? "text-white":"text-slate-900"} lg:hover:bg-transparent  hover:text-blue-950 lg:p-0`
-                                            }
-                                        >
-                                            About
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            to="/contact"
-                                            className={({isActive}) =>
-                                                `block  py-2 pr-4 mr-2 pl-3 duration-200   border-gray-100 ${isActive ? "text-white":"text-slate-900"} lg:hover:bg-transparent  hover:text-blue-950 lg:p-0`
-                                            }
-                                        >
-                                            Contact
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            to="/projects"
-                                            className={({isActive}) =>
-                                                `block py-2 pr-4 mr-2 pl-3 duration-200   border-gray-100 ${isActive ? "text-white":"text-slate-900"} lg:hover:bg-transparent  hover:text-blue-950 lg:p-0`
-                                            }
-                                        >
-                                            Projects
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            to="/user"
-                                            className={({isActive}) =>
-                                                `block py-2 pr-4 mr-2 pl-3 duration-200   border-gray-100 ${isActive ? "text-white":"text-slate-900"} lg:hover:bg-transparent  hover:text-blue-950 lg:p-0`
-                                            }
-                                        >
-                                            User
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
-                                            to="/skills"
-                                            className={({isActive}) =>
-                                                `block py-2 pr-4 mr-2 pl-3 duration-200   border-gray-100 ${isActive ? "text-white":"text-slate-900"} lg:hover:bg-transparent  hover:text-blue-950 lg:p-0`
-                                            }
-                                        >
-                                            Skills
-                                        </NavLink>
-                                    </li>
-                                    </ul>
-                                </div>
-                            )}
-                        </nav>
-                    <div
-                        className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-                        id="mobile-menu-2"
+            {menuOpen && (
+              <motion.div
+                className="absolute top-56 -left-8 bg-black text-white rounded-lg shadow-lg p-4 transition-all duration-500 ease-in-out"
+                onMouseLeave={() => setMenuOpen(false)}
+              >
+                <ul className="space-y-4 text-center">
+                  <li>
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        `block py-2 px-4 duration-200 rounded-lg ${
+                          isActive
+                            ? "bg-gray-700 text-white"
+                            : "hover:bg-gray-700 hover:text-white"
+                        }`
+                      }
                     >
-                       
-                    </div>
-                </div>
-            </nav>
-        </header>
-    );
+                      Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/about"
+                      className={({ isActive }) =>
+                        `block py-2 px-4 duration-200 rounded-lg ${
+                          isActive
+                            ? "bg-gray-700 text-white"
+                            : "hover:bg-gray-700 hover:text-white"
+                        }`
+                      }
+                    >
+                      About
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/contact"
+                      className={({ isActive }) =>
+                        `block py-2 px-4 duration-200 rounded-lg ${
+                          isActive
+                            ? "bg-gray-700 text-white"
+                            : "hover:bg-gray-700 hover:text-white"
+                        }`
+                      }
+                    >
+                      Contact
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/projects"
+                      className={({ isActive }) =>
+                        `block py-2 px-4 duration-200 rounded-lg ${
+                          isActive
+                            ? "bg-gray-700 text-white"
+                            : "hover:bg-gray-700 hover:text-white"
+                        }`
+                      }
+                    >
+                      Projects
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/skills"
+                      className={({ isActive }) =>
+                        `block py-2 px-4 duration-200 rounded-lg ${
+                          isActive
+                            ? "bg-gray-700 text-white"
+                            : "hover:bg-gray-700 hover:text-white"
+                        }`
+                      }
+                    >
+                      Skills
+                    </NavLink>
+                  </li>
+                </ul>
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
 }
-
-
-<ul className="flex flex-col mt-4 font-medium  lg:flex-row lg:space-x-8 lg:mt-0">
-<li>
-    <NavLink
-        to="/"
-        className={({isActive}) =>
-            `block py-2 pr-4 mr-2 pl-3 duration-200 border-b  border-gray-100 ${isActive ? "text-red-700":"text-gray-500"} lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-        }
-    >
-        Home
-    </NavLink>
-</li>
-<li>
-    <NavLink
-        to="/about"
-        className={({isActive}) =>
-            `block py-2 pr-4 pl-3 mr-2 duration-200 border-b border-gray-100 ${isActive ? "text-red-700":"text-gray-500"} lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-        }
-    >
-        About
-    </NavLink>
-</li>
-<li>
-    <NavLink
-        to="/contact"
-        className={({isActive}) =>
-            `block py-2 pr-4 pl-3 mr-2 duration-200 border-b border-gray-100 ${isActive ? "text-red-700":"text-gray-500"} lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-        }
-    >
-        Contact
-    </NavLink>
-</li>
-<li>
-    <NavLink
-        to="/project"
-        className={({isActive}) =>
-            `block py-2 pr-4 pl-3 mr-2 duration-200 border-b border-gray-100 ${isActive ? "text-red-700":"text-gray-500"} lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-        }
-    >
-        Projects
-    </NavLink>
-</li>
-<li>
-    <NavLink
-        to="/user"
-        className={({isActive}) =>
-            `block py-2 pr-4 pl-3 mr-2 duration-200 border-b border-gray-100 ${isActive ? "text-red-700":"text-gray-500"} lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-        }
-    >
-        User
-    </NavLink>
-</li>
-<li>
-    <NavLink
-        to="/github"
-        className={({isActive}) =>
-            `block py-2 pr-4 pl-3 mr-2 duration-200 border-b border-gray-100 ${isActive ? "text-red-700":"text-gray-500"} lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-        }
-    >
-        Github
-    </NavLink>
-</li>
-</ul>

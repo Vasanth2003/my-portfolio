@@ -15,8 +15,7 @@ function Home() {
       <div className='flex flex-col p-10'>
         <div className='w-[500px] h-[500px] absolute -bottom-32 -left-72 bg-white opacity-25 -z-1 rounded-full'></div>
 
-        {/* Image Animation */}
-        <motion.img className='flex flex-col w-[650px] h-auto z-10 absolute left-40  -bottom-16 ' 
+        <motion.img className='flex flex-col w-[650px] h-auto z-10 absolute left-36  -bottom-16 ' 
           src={vasanth}
             initial={{x:-100,transition:{duration:3}}}
             animate={{x:0,transition:{duration:1.2}}}

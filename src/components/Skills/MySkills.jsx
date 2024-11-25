@@ -1,7 +1,9 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
-function Skills() {
-    const Myskills = [
+
+function Myskills() {
+    const skills = [
         { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
         { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
         { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
@@ -15,11 +17,12 @@ function Skills() {
       ];
     
   return (
-    <div 
-    className='font-poppins  h-screen bg-gradient-to-b flex items-center justify-center from-slate-950 via-blue-900 to-slate-950'
+    <motion.div 
+    className='font-poppins  h-screen flex items-center justify-centerbg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] bg-opacity-25 overflow-hidden'
     initial={{opacity:0, width:0,transition:{duration:1}}}
     animate={{opacity:1, width:"100%",transition:{duration:1}}}
     exit={{opacity:0,x:window.innerWidth,transition:{duration:1} }}>
+    
          <div className="text-center mb-10">
         <h1 className="text-4xl font-bold text-white">What I Do</h1>
         <p className="text-gray-300 mt-4 max-w-2xl">
@@ -39,7 +42,7 @@ function Skills() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

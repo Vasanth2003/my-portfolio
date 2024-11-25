@@ -46,7 +46,9 @@ export default {
       fontFamily: {
         doto: ['Doto', 'sans-serif'],
         oswald:['Oswald', 'sans-serif'],
-poppins:['Poppins', 'sans-serif']
+        poppins:['Poppins', 'sans-serif'],
+        signatute:["Qwitcher Grypen", "cursive"]
+
       },
       animation: {
         rotate: 'rotate 5s linear infinite', // Adjust the duration, timing, and iteration
