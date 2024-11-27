@@ -5,6 +5,33 @@ import { motion, spring } from 'framer-motion';
 
 
 function Contact() {
+
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "aeef2c8d-db62-493a-8edb-5773ac3d6bb8");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
+
   return (
     // <motion.div className="font-poppins h-screen bg-gradient-to-b from-slate-950 via-blue-900 to-slate-950 flex justify-center items-center"
     // initial={{opacity:0, width:0,transition:{duration:1}}}
@@ -18,7 +45,6 @@ exit={{opacity:0,x:"100%",transition:{duration:1} }}
       
    
       <div className="relative bg-black text-white rounded-lg shadow-lg w-4/5 max-w-6xl overflow-hidden">
-        {/* Left Section */}
 
         
         <div className="p-10 w-2/3">
@@ -26,7 +52,6 @@ exit={{opacity:0,x:"100%",transition:{duration:1} }}
             Let's <span className="text-blue-800">talk</span>
           </h1>
           <div className="flex justify-start items-center gap-4  mt-10">
-      {/* Facebook */}
       <a
         href="https://www.facebook.com"
         target="_blank"
@@ -36,7 +61,6 @@ exit={{opacity:0,x:"100%",transition:{duration:1} }}
         <FaFacebookF size={30} />
       </a>
 
-      {/* Instagram */}
       <a
         href="https://www.instagram.com"
         target="_blank"
@@ -46,7 +70,6 @@ exit={{opacity:0,x:"100%",transition:{duration:1} }}
         <FaInstagram size={30} />
       </a>
 
-      {/* LinkedIn */}
       <a
         href="https://www.linkedin.com"
         target="_blank"
@@ -58,11 +81,12 @@ exit={{opacity:0,x:"100%",transition:{duration:1} }}
     </div>
           <p className="text-gray-400 mb-8">
           </p>
-          <form className="py-0 my-1">
+          <form className="py-0 my-1" onSubmit={onSubmit}>
             <div>
               <input
                 type="text"
                 placeholder="Your Name"
+                name='name'
                 className="w-full  bg-gray-800 my-2 text-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
               />
             </div>
@@ -70,6 +94,7 @@ exit={{opacity:0,x:"100%",transition:{duration:1} }}
               <input
                 type="email"
                 placeholder="Your Email"
+                name='email'
                 className="w-full bg-gray-800 my-1 text-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
               />
             </div>
@@ -77,7 +102,8 @@ exit={{opacity:0,x:"100%",transition:{duration:1} }}
               <textarea
                 placeholder="Your Message"
                 rows="4"
-                className="w-full bg-gray-800 my-2 text-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
+                name='message'
+                className="w-full resize-none bg-gray-800 my-2 text-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
               ></textarea>
             </div>
             <button
@@ -89,7 +115,6 @@ exit={{opacity:0,x:"100%",transition:{duration:1} }}
           </form>
         </div>
 
-        {/* Right Section */}
         <div className="absolute -right-32 top-48 transform -translate-y-1/2">
           <img
             src={contactImage}
